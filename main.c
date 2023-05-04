@@ -7,6 +7,7 @@
 #define BLOCK_SIZE 480
 
 TinyWav tw;
+uint32_t get_bitrate(TinyWav*);
 
 int main(int argc,  char** argv)
 {
@@ -15,8 +16,9 @@ int main(int argc,  char** argv)
         return 1;
     }
 
-    tinywav_open_read(&tw, argv[0], TW_SPLIT);
+    tinywav_open_read(&tw, argv[1], TW_SPLIT);
 
+    printf("%u", get_bitrate(&tw));
     for (int i = 0; i < 100; i++) {
         // samples are always provided in float32 format,
         // regardless of file sample format
@@ -40,3 +42,9 @@ int main(int argc,  char** argv)
 
     return 0;
 }
+
+uint32_t get_bitrate(TinyWav* tw_ptr) {
+    return tw_ptr->h.ByteRate;
+}
+
+

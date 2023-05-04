@@ -110,7 +110,7 @@ int tinywav_open_read(TinyWav *tw, const char *path, TinyWavChannelFormat chanFm
 int tinywav_read_f(TinyWav *tw, void *data, int len) {
   switch (tw->sampFmt) {
     case TW_INT16: {
-      int16_t *interleaved_data = (int16_t *) alloca(tw->numChannels*len*sizeof(int16_t));
+      int16_t *interleaved_data = (int16_t *) alloca(tw->numChannels * len * sizeof(int16_t));
       size_t samples_read = fread(interleaved_data, sizeof(int16_t), tw->numChannels*len, tw->f);
       int valid_len = (int) samples_read / tw->numChannels;
       switch (tw->chanFmt) {
