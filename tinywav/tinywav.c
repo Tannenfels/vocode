@@ -107,7 +107,7 @@ int tinywav_open_read(TinyWav *tw, const char *path, TinyWavChannelFormat chanFm
   return 0;
 }
 
-int tinywav_read_f(TinyWav *tw, void *data, int len) {
+int tinywav_read_f(TinyWav *tw, void *data, unsigned int len) {
   switch (tw->sampFmt) {
     case TW_INT16: {
       int16_t *interleaved_data = (int16_t *) alloca(tw->numChannels * len * sizeof(int16_t));
@@ -169,8 +169,6 @@ int tinywav_read_f(TinyWav *tw, void *data, int len) {
     }
     default: return 0;
   }
-
-  return len;
 }
 
 void tinywav_close_read(TinyWav *tw) {

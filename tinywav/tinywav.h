@@ -102,7 +102,7 @@ int tinywav_open_read(TinyWav *tw, const char *path, TinyWavChannelFormat chanFm
  *
  * @return The number of frames (samples per channel) read from file.
  */
-int tinywav_read_f(TinyWav *tw, void *data, int len);
+int tinywav_read_f(TinyWav *tw, void *data, unsigned int len);
 
 /** Stop reading the file. The Tinywav struct is now invalid. */
 void tinywav_close_read(TinyWav *tw);

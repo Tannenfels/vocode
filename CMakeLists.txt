@@ -3,5 +3,5 @@ project(vocode C)
 
 set(CMAKE_C_STANDARD 11)
 
-add_executable(vocode main.c fft/fft.h fft/fft.c tinywav/tinywav.c tinywav/tinywav.h)
+add_executable(vocode main.c fft/fft.h fft/fft.c tinywav/tinywav.c tinywav/tinywav.h encoder/encoder.c encoder/encoder.h)
 target_link_libraries(vocode m)
